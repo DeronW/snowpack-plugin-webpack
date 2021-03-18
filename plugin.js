@@ -375,7 +375,8 @@ module.exports = function plugin(config, args = {}) {
       for (name in jsEntries) {
         entry[name] = jsEntries[name].path;
       }
-      const packageName = require('./package.json').name;
+      // 参考：https://qiankun.umijs.org/zh/guide/getting-started#webpack
+      const packageName = tempBuildManifest.name
       const extendedConfig = extendConfig({
         ...webpackConfig,
         plugins,
