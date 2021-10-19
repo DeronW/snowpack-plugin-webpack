@@ -402,7 +402,7 @@ module.exports = function plugin(config, args = {}) {
         output: {
           library: packageName + '-[name]',
           libraryTarget: 'umd',
-          jsonpFunction: 'webpackJsonp_' + packageName,
+          chunkLoadingGlobal: 'webpackJsonp_' + packageName,
           path: buildDirectory,
           publicPath: baseUrl,
           filename: jsOutputPattern,
