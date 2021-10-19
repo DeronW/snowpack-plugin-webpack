@@ -394,11 +394,15 @@ module.exports = function plugin(config, args = {}) {
       for (name in jsEntries) {
         entry[name] = jsEntries[name].path;
       }
+      const packageName = require('./package.json').name;
       const extendedConfig = extendConfig({
         ...webpackConfig,
         plugins,
         entry,
         output: {
+          library: packageName + '-[name]',
+          libraryTarget: 'umd',
+          jsonpFunction: 'webpackJsonp_' + packageName,
           path: buildDirectory,
           publicPath: baseUrl,
           filename: jsOutputPattern,
