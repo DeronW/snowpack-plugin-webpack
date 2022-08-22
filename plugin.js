@@ -367,6 +367,7 @@ module.exports = function plugin(config, args = {}) {
           ],
         },
         mode: 'production',
+        target: ['web', 'es5'],
         devtool: args.sourceMap ? 'source-map' : undefined,
         optimization: {
           // extract webpack runtime to its own chunk: https://webpack.js.org/concepts/manifest/#runtime
